@@ -12,11 +12,13 @@ import re
 class Post(models.Model):
     title = models.CharField(max_length=150, verbose_name='Назва')
     main_image = models.ImageField(verbose_name='Головне фото', upload_to='uploads/main_images')
-    text = models.CharField(max_length=10000, verbose_name='Текст статті')
+    preview_text = models.CharField(verbose_name='Текст-прев\`ю', max_length=150)
+    text = models.CharField(max_length=10000, verbose_name='Текст')
     slug = AutoSlugField(populate_from='title',
                         unique=True,
                         allow_unicode=True,
                         max_length=200)
+    creating_date = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
 
     def __str__(self):
         return self.title

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-4">
+                    {% for post in posts %}
+                    <article class="card mb-4">
+                        <header class="card-header">
+                        <div class="card-meta">
+                            <time class="timeago" timeago-id="1">{{ post.creating_date }}</time> <a href="#">Journey</a>
+                        </div>
+                        <a href="#">
+                            <h4 class="card-title">{{ post.title }}</h4>
+                        </a>
+                        </header>
+                        <a href="#">
+                        <img class="card-img" src="{{ post.main_image.url }}" alt="">
+                        </a>
+                        <div class="card-body">
+                        <p class="card-text">{{ post.preview_text }}</p>
+                        </div>
+                    </article><!-- /.card -->
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+    {% endblock content %}
