@@ -7,6 +7,22 @@ from autoslug import AutoSlugField
 import re
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=50, verbose_name='Категорія')
+    slug = AutoSlugField(populate_from='title',
+                        unique=True,
+                        allow_unicode=True,
+                        max_length=200)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('core:category_page', kwargs={'slug': self.slug})
+
+    class Meta:
+        verbose_name_plural = 'Категорії'
+
 
 
 class Post(models.Model):
@@ -19,6 +35,7 @@ class Post(models.Model):
                         allow_unicode=True,
                         max_length=200)
     creating_date = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
+    category = models.ManyToManyField(Category)
 
     def __str__(self):
         return self.title

@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TechCoreUA | Головна</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white absolute-top">
-      <div class="container">
+      <div class="container col-12">
 
         <button class="navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-left navbar-right" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,19 +21,18 @@
         <div class="collapse navbar-collapse order-3 order-md-2" id="navbar-left">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">Головна</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+              <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Статті</a>
               <div class="dropdown-menu" aria-labelledby="dropdown02">
-                <a class="dropdown-item" href="#">Image</a>
+                {% for category in categories %}
+                <a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                {% endfor %}
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Components</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown03">
-                <a class="dropdown-item" href="#">Alerts</a>
-              </div>
+              <a class="nav-link" href="#">Новини</a>
             </li>
           </ul>
         </div>
@@ -43,14 +42,14 @@
         <div class="collapse navbar-collapse order-4 order-md-4" id="navbar-right">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="page-about.html">About</a>
+              <a class="nav-link" href="page-about.html">Про нас</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="page-contact.html">Contact</a>
+              <a class="nav-link" href="page-contact.html">Контакти</a>
             </li>
           </ul>
           <form class="form-inline" role="search">
-            <input class="search js-search form-control form-control-rounded mr-sm-2" type="text" title="Enter search query here.." placeholder="Search.." aria-label="Search">
+            <input class="search js-search form-control form-control-rounded mr-sm-2" type="text" title="Шукайте тут.." placeholder="Пошук.." aria-label="Search">
           </form>
         </div>
       </div>
@@ -72,7 +71,7 @@
             <aside class="sidebar">
                 <div class="card mb-4">
                 <div class="card-body">
-                    <h4 class="card-title">About</h4>
+                    <h4 class="card-title">Про нас</h4>
                     <p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam <a href="#">semper libero</a>, sit amet adipiscing sem neque sed ipsum. </p>
                 </div>
                 </div><!-- /.card -->
@@ -81,13 +80,13 @@
             <aside class="sidebar sidebar-sticky">
                 <div class="card mb-4">
                 <div class="card-body">
-                    <h4 class="card-title">Tags</h4>
+                    <h4 class="card-title">Теги</h4>
                     <a class="btn btn-light btn-sm mb-1" href="page-category.html">Journey</a>
                 </div>
                 </div><!-- /.card -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h4 class="card-title">Popular stories</h4>
+                        <h4 class="card-title">Популярні статті</h4>
                         <a href="post-image.html" class="d-inline-block mt-3">
                             <h4 class="h6">Crying on the news</h4>
                             <img class="card-img" src="#" alt="img">
@@ -209,7 +208,7 @@
     </div>
   </footer>
 
-    <script src="js/app.js"></script>
+    <script src="/static/js/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

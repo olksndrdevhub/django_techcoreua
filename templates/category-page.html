@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
 
-    {% block content %}
+{% block content %}
         <div class="col-md-9">
             <div class="posts_container">
                 {% for post in posts %}
@@ -9,7 +8,7 @@
                     <article class="card mb-4">
                         <header class="card-header">
                         <div class="card-meta">
-                            <time class="timeago" timeago-id="1">{{ post.creating_date }}</time> <a href=""></a>
+                            <time class="timeago" timeago-id="1">{{ post.creating_date }}</time>
                         </div>
                         <a href="#">
                             <h4 class="card-title">{{ post.title }}</h4>
