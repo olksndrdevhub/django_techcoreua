@@ -1,0 +1,20 @@
+hr{
+    background-color: var(--mainHeaderscolorDark);
+}
+.midlle-posts > h3,
+.bottom-box > h3,
+.category-pageh3{
+    color: var(--mainHeaderscolorDark);
+}
+.p-p-dark{
+    color: var(--mainHeaderscolorDark);
+}
+.post-text p{
+    color: var(--mainHeaderscolorDark);
+}
+
+
+
+body{
+    background-color: black;
+}

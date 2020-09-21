@@ -45,9 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'ckeditor',
+    'ckeditor_uploader',
     'techcoreua',
     'core',
 ]
+
+
 
 SITE_ID = 1
 
@@ -147,9 +151,12 @@ USE_TZ = True
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static_in_venv'),)
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRCT_URL = '/'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"

@@ -22,8 +22,9 @@ from core import views
 from . import settings
 
 urlpatterns = [
-    path('', include('core.urls', namespace='core')),
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('core.urls', namespace='core')),
 ]
 
 if settings.DEBUG:

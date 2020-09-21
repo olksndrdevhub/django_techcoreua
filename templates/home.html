@@ -1,29 +1,149 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {% block content %}
-        <div class="col-md-9">
-            <div class="posts_container">
-                {% for post in posts %}
-                <div class="post_box">
-                    <article class="card mb-4">
-                        <header class="card-header">
-                        <div class="card-meta">
-                            <time class="timeago" timeago-id="1">{{ post.creating_date }}</time> <a href=""></a>
-                        </div>
-                        <a href="#">
-                            <h4 class="card-title">{{ post.title }}</h4>
-                        </a>
-                        </header>
-                        <a href="#">
-                        <img class="card-img" src="{{ post.main_image.url }}" alt="">
-                        </a>
-                        <div class="card-body">
-                        <p class="card-text">{{ post.preview_text }}</p>
-                        </div>
-                    </article><!-- /.card -->
+{% block content %}
+        <div class="col-12 top-box mt-5 pt-4">
+            <div class="top-posts post1" style="background-image: url({{s_p_1.main_image.url}});">
+                <!-- <img class="post1-image-top img-fluid" src="/media/template.png" alt="" srcset=""> -->
+                <div class="post1-title-top">
+                    <a class="read_more read_more-top" href="{{s_p_1.get_absolute_url}}">
+                        <h4 class="post-titleh4">{{s_p_1.title}}</h4>
+                    </a>
+                    <p class="text-left autor-date-area">admin / {{s_p_1.creating_date}}</p>
                 </div>
-                {% endfor %}
+
+            </div>
+
+            <div class="top-posts post2" style="background-image: url({{s_p_2.main_image.url}});">
+                <!-- <img class="post2-image-top img-fluid" src="/media/template.png" alt="" srcset=""> -->
+                <div class="post1-title-top">
+                    <a class="read_more read_more-top" href="{{s_p_2.get_absolute_url}}">
+                        <h4 class="post-titleh4">{{s_p_2.title}}</h4>
+                    </a>
+                    <p class="text-left autor-date-area">admin / {{s_p_2.creating_date}}</p>
+                </div>
+            </div>     
+
+            <div class="top-posts post3" style="background-image: url({{s_p_3.main_image.url}});">
+                
+                <div class="post1-title-top">
+                    <a class="read_more read_more-top" href="{{s_p_3.get_absolute_url}}">
+                        <h4 class="post-titleh4">{{s_p_3.title}}</h4>
+                    </a>
+                    <p class="text-left autor-date-area">admin / {{s_p_3.creating_date}}</p>
+                </div>
             </div>
         </div>
+        
+        <div class="container mt-3 midlle-box">
+            <div class="midlle-posts column1">
+
+                <h3>Windows</h3><hr>
+                {% for post in last_windows_posts %}
+                    <div class="midlle-post">
+                        <img class="post-image-midlle" src="{{post.main_image.url}}" alt="" srcset="">
+                        <div class="post-title-midlle">
+                            <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
+                                <h6 class="post-titleh6">{{post.title}}</h6>
+                            </a>
+                            <p class="text-left autor-date-area">admin / {{post.creating_date}}</p>
+                        </div>
+        
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="midlle-posts column2">
+
+                <h3>Linux</h3><hr>
+
+                {% for post in last_linux_posts %}
+                    <div class="midlle-post">
+                        <img class="post-image-midlle" src="{{post.main_image.url}}" alt="" srcset="">
+                        <div class="post-title-midlle">
+                            <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
+                                <h6 class="post-titleh6">{{post.title}}</h6>
+                            </a>
+                            <p class="text-left autor-date-area">admin / {{post.creating_date}}</p>
+                        </div>
+        
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="midlle-posts column3">
+
+                <h3>Мануали</h3><hr>
+
+                {% for post in last_manuals_posts %}
+                    <div class="midlle-post">
+                        <img class="post-image-midlle" src="{{post.main_image.url}}" alt="" srcset="">
+                        <div class="post-title-midlle">
+                            <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
+                                <h6 class="post-titleh6">{{post.title}}</h6>
+                            </a>
+                            <p class="text-left autor-date-area">admin / {{post.creating_date}}</p>
+                        </div>
+        
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+        
+
+        <div class="container infinite-container mt-3 bottom-box">
+            <h3 class="text-center">Останні дописи</h3><hr>
+            <div class="bottom-posts">
+                {% for post in posts %}
+                    <div class="bottom-post infinite-item">
+                        <img class="post-image-bottom img-fluid" src="{{post.main_image.url}}" alt="" srcset="">
+                        <div class="post-title-bottom">
+                            <a class="read_more read_more-bottom" href="{{post.get_absolute_url}}"><h4 class="post-titleh4">{{post.title}}</h4></a>
+                            <p class="autor-date-area">admin / {{post.creating_date}}</p>
+                            <p class="post-preview">{{post.preview_text|safe}}</p>
+
+                        </div>
+                    </div>
+                {% empty%}
+                <div class="text-center m-5">
+                    <h2>NO POSTS!!!</h2>
+                </div>
+                {% endfor %}
+                
+            </div>
+
+            <div class="page-navigation mt-5 mb-5">
+                <div class="button">
+                    {% if posts.has_other_pages %}
+                    <ul class="pagination">
+                        {% if posts.has_previous %}
+                        <li><a class="btn load-more" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                        <li class="disabled btn load-more"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in posts.paginator.page_range %}
+                            {% if posts.number == i %}
+                                <li class="btn load-more text-secondary bg-light"><span>{{ i }} </span></li>
+                            {% else %}
+                                <li><a class="btn load-more" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if posts.has_next %}
+                        <li><a class="btn load-more" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                        <li class="disabled btn load-more"><span>&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+    
+        
+                
+        
     {% endblock content %}
