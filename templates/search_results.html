@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="col-12 mt-5 pt-5">
+            <div class="wrapper">
+                <h3 class="category-pageh3 text-center">Дописи за запитом: {{request.GET.q}}</h3><hr>
+                
+                    {% if object_list|length %}
+                        <div class="category-page-posts">
+                            {% for post in object_list %}
+                                <div class="category-page-post">
+                                    <img class="img-fluid category-page-post-img" src="{{post.main_image.url}}" alt="" srcset="">
+                                    <div class="category-page-post-text">
+                                        <a class="read_more" href="{{post.get_absolute_url}}"><h4 class="post-titleh4">{{post.title}}</h4></a>
+                                        <p class="autor-date-area">admin / {{post.creating_date}}</p>
+                                        <p class="post-preview">{{post.preview_text}}</p>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center">
+                            <h4>Нічого не знайдено...</h4>
+                        </div>
+                    {% endif %}
+
+                    
+                    
+                
+                <div class="page-navigation mt-5 mb-5">
+                    <div class="button">
+                        {% if object_list.has_other_pages %}
+                        <ul class="pagination">
+                            {% if object_list.has_previous %}
+                            <li><a class="btn load-more" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                            <li class="disabled btn load-more"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in object_list.paginator.page_range %}
+                                {% if object_list.number == i %}
+                                    <li class="btn load-more text-secondary bg-light"><span>{{ i }} </span></li>
+                                {% else %}
+                                    <li><a class="btn load-more" {% if request.GET.q %} href="{{request.get_path}}?q={{request.GET.q}}&page={{ i }}"{% endif %}>{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if object_list.has_next %}
+                            <li><a class="btn load-more" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                            <li class="disabled btn load-more"><span>&raquo;</span></li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+    
+            </div>
+          
+        </div>
+    {% endblock content %}

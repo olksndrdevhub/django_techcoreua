@@ -50,8 +50,8 @@
       </div> -->
       
 
-        <form class="form-inline mb-4 my-lg-0">
-          <input class="form-control mr-sm-2 custom-input" type="search" placeholder="Пошук">
+        <form class="form-inline mb-4 my-lg-0" method="GET" action="{% url 'core:search_results' %}">
+          <input class="form-control mr-sm-2 custom-input" type="text" placeholder="Пошук" name="q">
           <button class="btn my-2 my-sm-0 custom-search-button" type="submit">Пошук</button>
         </form>
       </div>

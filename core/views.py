@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
+from django.db.models import Q
 
 
 from .models import Category, Post, Tags
@@ -132,3 +133,33 @@ def tag_page(request, slug):
         'categories': categories
     }
     return render(request, 'tag-page.html', context=context)
+
+
+class SearchView(ListView):
+    model = Post
+    template_name = 'search_results.html'
+    # context_object_name = 'context'
+
+
+    def get_queryset(self): # new
+        query = self.request.GET.get('q')
+        objects = Post.objects.filter(
+            Q(title__icontains=query)
+        )
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(objects, 10)
+
+        try:
+            object_list = paginator.page(page)
+        except PageNotAnInteger:
+            object_list = paginator.page(1)
+        except EmptyPage:
+            object_list = paginator.page(paginator.num_pages)
+
+
+        return object_list
+    
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
