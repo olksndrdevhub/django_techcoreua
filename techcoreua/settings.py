@@ -89,10 +89,24 @@ WSGI_APPLICATION = 'techcoreua.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# sqllite3 database connection
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# Postgresql database connection
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'techcoreuadb', 
+        'USER': 'techcoreua', 
+        'PASSWORD': 'pravuy14',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 

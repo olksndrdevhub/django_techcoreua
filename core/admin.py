@@ -17,7 +17,8 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
-    list_display = ('id', 'title', 'star', 'creating_date', 'category')
+    list_display = ('id', 'title', 'star', 'creating_date', 'category',)
+    
 
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)

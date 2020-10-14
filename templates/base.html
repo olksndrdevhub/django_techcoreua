@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>techcoreua</title>
+        <link rel="shortcut icon" href="{% static '/favicon.ico' %}" type="image/x-icon">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" id="theme-style">
@@ -31,6 +32,7 @@
         </ul>
 
         <div class="switchbox" style="display: flex;">
+
           <div class="sun theme-mode" data-mode='light'>
             <i class="fas fa-lightbulb fa-lg"></i>
           </div>
@@ -54,6 +56,18 @@
           <input class="form-control mr-sm-2 custom-input" type="text" placeholder="Пошук" name="q">
           <button class="btn my-2 my-sm-0 custom-search-button" type="submit">Пошук</button>
         </form>
+
+        {% if request.user.is_authenticated %}
+          <div class="btn-group">
+            {% if request.user.is_staff %}
+                <a href="{% url 'admin:index' %}" class="nav-link"><strong>Адмінпанель</strong></a>
+                <div class="dropdown-divider"></div>
+            {% endif %}
+            <a class="nav-link" href="{% url 'account_logout' %}"><strong>Вихід</strong></a>
+          </div>
+        {% endif %}
+
+
       </div>
     </nav>
   </header>
