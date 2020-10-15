@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'techcoreua',
     'core',
+    'django.contrib.sitemaps',
 ]
 
 
