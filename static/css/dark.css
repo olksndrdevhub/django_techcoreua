@@ -9,7 +9,16 @@ hr{
 .p-p-dark{
     color: var(--mainHeaderscolorDark);
 }
-
+.post-text p{
+    color: var(--mainHeaderscolorDark);
+}
+.post-text h5{
+    color: var(--mainHeaderscolorDark);
+}
+.post-text code{
+    background-color: rgba(255, 255, 255, 0.562);
+    padding: 2px;
+}
 
 
 
