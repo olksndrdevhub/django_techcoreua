@@ -25,6 +25,8 @@ from . import settings
 
 from .sitemaps import PostSitemap, CategorySitemap, TagsSitemap
 
+from .feeds import LatestPostsFeed
+
 sitemaps = {'post': PostSitemap, 'category': CategorySitemap, 'tag': TagsSitemap}
 
 urlpatterns = [
@@ -34,6 +36,7 @@ urlpatterns = [
     path('', include('core.urls', namespace='core')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    path('feed/rss', LatestPostsFeed(), name='post_feed'),
 ]
 
 if settings.DEBUG:
