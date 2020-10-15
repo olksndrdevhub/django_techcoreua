@@ -3,4 +3,7 @@ Disallow: /admin/
 Disallow: /accounts/
 Disallow: /ckeditor/
 
+User-agent: Googlebot
+Allow: *.xml
+
 Sitemap: http://techcoreua.tk/sitemap.xml
