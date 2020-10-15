@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from django.views.generic.base import TemplateView
 
 from core import views
 
@@ -31,7 +32,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('core.urls', namespace='core')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps})
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
 ]
 
 if settings.DEBUG:
