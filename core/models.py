@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 from autoslug import AutoSlugField
 
@@ -53,6 +54,10 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tags, verbose_name='Теги')
     star = models.BooleanField(verbose_name='Star', default=False)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
+    
+    if author:
+        print(author)
 
     def __str__(self):
         return self.title

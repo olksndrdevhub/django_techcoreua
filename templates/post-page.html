@@ -4,7 +4,7 @@
 <div class="post-page-container col-12 mt-5 pt-5">
     <div class="post-container">
         <img src="{{post.main_image.url}}" alt="" class="img-fluid">
-        <p class="autor-date-area">admin / {{post.creating_date}}</p>
+        <p class="autor-date-area">{{post.author.first_name}} {{post.author.last_name}} / {{post.creating_date}}</p>
         <hr>
         <div class="post-text">
             <h3 class="post-titleh3 p-p-dark">{{post.title}}</h3>
@@ -36,7 +36,7 @@
                 <img class="img-fluid sidebar-page-post-img" src="{{manual.main_image.url}}" alt="" srcset="">
                 <div class="sidebar-page-post-text">
                     <a class="read_more" href="{{manual.get_absolute_url}}"><h4 class="post-titleh4">{{manual.title}}</h4></a>
-                    <p class="autor-date-area">admin / {{manual.creating_date}}</p>
+                    <p class="autor-date-area">{{manual.author.first_name}} {{manual.author.last_name}} / {{manual.creating_date}}</p>
                 </div>
             </div>
             {% endfor %}
@@ -51,7 +51,7 @@
                 <img class="img-fluid sidebar-page-post-img" src="{{news.main_image.url}}" alt="" srcset="">
                 <div class="sidebar-page-post-text">
                     <a class="read_more" href="{{news.get_absolute_url}}"><h4 class="post-titleh4">{{news.title}}</h4></a>
-                    <p class="autor-date-area">admin / {{news.creating_date}}</p>
+                    <p class="autor-date-area">{{news.author.first_name}} {{news.author.last_name}} / {{news.creating_date}}</p>
                 </div>
             </div>
             {% endfor %}
