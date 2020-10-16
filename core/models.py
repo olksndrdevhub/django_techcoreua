@@ -12,7 +12,7 @@ class Category(models.Model):
     slug = AutoSlugField(populate_from='title',
                         unique=True,
                         allow_unicode=True,
-                        max_length=200, editable=True)
+                        max_length=200)
     def __str__(self):
         return self.title
 
