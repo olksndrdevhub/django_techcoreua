@@ -47,8 +47,7 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title',
                         unique=True,
                         allow_unicode=True,
-                        max_length=200,
-                        editable=True)
+                        max_length=200)
     
     creating_date = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
