@@ -12,23 +12,37 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
+
+
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY', default='L+E`7WlYpFugXM&Kk!npBn5P2?:0.P;2p|AEgu`0d16%sRm/VUu!yN};)x!B0DH')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# DJANGO_SETTINGS_MODULE='techcoreua.settings'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!-hovfk8z8!kg0-h$biac5)f@9-9(kab+a!56i(mqis-t_jj!q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 102400
-DEBUG = True
 
-ALLOWED_HOSTS = [
-    '*',
-]
+if env('ENV') == 'production':
+    DEBUG = False
+elif env('ENV') == 'development':
+    DEBUG = True
+
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -85,6 +99,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'techcoreua.wsgi.application'
+
+
 
 
 # Database
@@ -175,3 +191,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 LOGIN_REDIRCT_URL = '/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
+# if ENVIRONMENT == 'production':
+#     DEBUG = False
+#     SECRET_KEY = os.getenv('SECRET_KEY')
+#     SESSION_COOKIE_SECURE = True
+#     SECURE_BROWSER_XSS_FILTER = True
+#     SECURE_CONTENT_TYPE_NOSNIFF = True
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_HSTS_SECONDS = 31536000
+#     SECURE_REDIRECT_EXEMPT = []
+#     SECURE_SSL_REDIRECT = True
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
