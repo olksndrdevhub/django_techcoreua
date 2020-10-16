@@ -163,3 +163,22 @@ class SearchView(ListView):
         context = super(ListView, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         return context
+
+
+def contacts(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'contacts-page.html', context=context)
+
+def about(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'about-page.html', context=context)
+
+def privacy(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'privacy-page.html', context=context)

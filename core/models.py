@@ -56,8 +56,6 @@ class Post(models.Model):
     star = models.BooleanField(verbose_name='Star', default=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     
-    if author:
-        print(author)
 
     def __str__(self):
         return self.title

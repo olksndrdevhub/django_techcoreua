@@ -23,18 +23,18 @@ from core import views
 
 from . import settings
 
-from .sitemaps import PostSitemap, CategorySitemap, TagsSitemap
+from .sitemaps import PostSitemap, CategorySitemap, TagsSitemap, StaticSitemap
 
 from .feeds import LatestPostsFeed
 
-sitemaps = {'post': PostSitemap, 'category': CategorySitemap, 'tag': TagsSitemap}
+sitemaps = {'static': StaticSitemap, 'category': CategorySitemap, 'tag': TagsSitemap, 'post': PostSitemap,}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('core.urls', namespace='core')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('feed/rss', LatestPostsFeed(), name='post_feed'),
 ]

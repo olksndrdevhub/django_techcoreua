@@ -23,7 +23,6 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" id="theme-style">
         <link href="http://techcoreua.tk/" rel="canonical">
-        <!-- <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet"> -->
     </head>
 <body>
   <header>
@@ -56,13 +55,6 @@
   
         </div>
 
-        <!-- <div class="onoffswitch mb-sm-3 mb-lg-0">
-          <input type="checkbox" onclick="change()" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" mode="null">
-          <label class="onoffswitch-label" for="myonoffswitch">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-          </label>
-      </div> -->
       
 
         <form class="form-inline mb-4 my-lg-0" method="GET" action="{% url 'core:search_results' %}">
@@ -100,7 +92,26 @@
   </main>
 
   <footer class="footer mt-auto">
-    <div class="container text-center pt-4">All right reserved</div>
+    <div class="sitemap text-center pt-4 pb-4">
+      Контакти та інформація <br>
+      <!-- {% for category in categories %}
+        <a class="nav-link nav-link-footer p-1" href="{{category.get_absolute_url}}">{{category.title}}</a>
+      {% endfor %} -->
+      <a class="nav-link nav-link-footer p-1" href="{% url 'core:contacts' %}">Контакти</a>
+      <a class="nav-link nav-link-footer p-1" href="{% url 'core:about' %}">Про нас</a>
+    </div>
+
+    <div class="container text-center pt-4 pb-4">
+      TechCoreUA © Всі права захищено <br>
+      <a href="{% url 'core:privacy' %}" class="nav-link nav-link-footer">Політика приватності</a>
+    </div>
+
+    <div class="social text-center pt-4 pb-4">
+      TechCoreUA в соцмережах <br>
+      <a href="https://twitter.com/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-twitter"></i> Twitter | @techcoreua</a>
+      <a href="https://www.instagram.com/techcoreua/" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-instagram"></i> Instagram | @techcoreua</a>
+      <a href="https://t.me/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-telegram"></i> Telegram | @techcoreua</a>
+    </div>
   </footer>
 
 
