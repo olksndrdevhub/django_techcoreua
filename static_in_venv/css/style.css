@@ -315,9 +315,7 @@ hr{
     align-items: center;
 }
 
-.button{
 
-}
 
 .load-more:focus,
 .load-more{
@@ -348,10 +346,7 @@ hr{
     gap: 25px;
 }
 
-.category-page-post{
-    /* height: 300px; */
 
-}
 
 .category-page-post-text{
     background-color: var(--secondaryColor);
@@ -495,9 +490,7 @@ section.social_links{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-section.social_links>div{
-    
-}
+
 section.social_links>div>a{
     font-size: 16px;
     padding: 4%;
