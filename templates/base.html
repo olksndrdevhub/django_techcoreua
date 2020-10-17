@@ -66,9 +66,9 @@
           <div class="btn-group">
             {% if request.user.is_staff %}
                 <a href="{% url 'admin:index' %}" class="nav-link"><strong>Адмінпанель</strong></a>
-                <div class="dropdown-divider"></div>
+                <a href="/admin/filebrowser/browse/" class="nav-link"><strong>Файли</strong></a>
             {% endif %}
-            <a class="nav-link" href="{% url 'account_logout' %}"><strong>Вихід</strong></a>
+            <a class="nav-link" href="{% url 'account_logout' %}"><strong><i class="fas fa-sign-out-alt"></i></strong></a>
           </div>
         {% endif %}
 

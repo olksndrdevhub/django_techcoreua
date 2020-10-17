@@ -19,6 +19,8 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic.base import TemplateView
 
+from filebrowser.sites import site
+
 from core import views
 
 from . import settings
@@ -30,6 +32,8 @@ from .feeds import LatestPostsFeed
 sitemaps = {'static': StaticSitemap, 'category': CategorySitemap, 'tag': TagsSitemap, 'post': PostSitemap,}
 
 urlpatterns = [
+    path('admin/filebrowser/', site.urls),
+   path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),

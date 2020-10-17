@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -205,3 +207,11 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 #     SECURE_SSL_REDIRECT = True
 #     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# filebrowser
+
+FILEBROWSER_EXTENSIONS = {
+    'Image': ['.jpg','.jpeg','.gif','.png','.webm','.webp'],
+    'Document': ['.pdf','.txt'],
+    'Video': ['.mov','.wmv','.mpeg','.mpg','.avi','.rm'],
+    'Audio': ['']
+}
