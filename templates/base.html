@@ -124,7 +124,7 @@
     // change yourdomain.in to your domain
     var disqus_config = function () {
       this.page.url = "{{request.build_absolute_uri}}"; 
-      this.page.identifier = "{{url}}"; 
+      this.page.identifier = "{{request.build_absolute_uri}}"; 
     };
     
     // Modify End
