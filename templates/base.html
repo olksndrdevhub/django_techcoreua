@@ -123,7 +123,7 @@
   <script>
     // change yourdomain.in to your domain
     var disqus_config = function () {
-      this.page.url = "http://localhost:8000/{{url}}/"; 
+      this.page.url = "{{request.build_absolute_uri}}"; 
       this.page.identifier = "{{url}}"; 
     };
     
