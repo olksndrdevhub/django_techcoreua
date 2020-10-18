@@ -34,7 +34,7 @@ sitemaps = {'static': StaticSitemap, 'category': CategorySitemap, 'tag': TagsSit
 urlpatterns = [
     path('admin/filebrowser/', site.urls),
    path('grappelli/', include('grappelli.urls')),
-    path('admin/', admin.site.urls),
+    path('admin_panel/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('core.urls', namespace='core')),
