@@ -56,7 +56,7 @@ def category_page(request, slug):
     categories = Category.objects.all()
     category = Category.objects.filter(slug=slug).first()
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
 
     posts_list = Post.objects.filter(category=category)
@@ -75,7 +75,7 @@ def category_page(request, slug):
     context={
         'tags': tags,
         'posts': posts, 
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'category': category, 
         'categories': categories
@@ -88,7 +88,7 @@ def post_page(request, slug):
     categories = Category.objects.all()
     post_tags = post.tags.all()
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
     
 
@@ -96,7 +96,7 @@ def post_page(request, slug):
     context = {
         'tags': tags,
         'post': post, 
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'categories': categories, 
         'post_tags': post_tags 
@@ -108,7 +108,7 @@ def tag_page(request, slug):
     tag = Tags.objects.filter(slug=slug).first()
     categories = Category.objects.all()
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
 
     posts_list = tag.post_set.all()
@@ -128,7 +128,7 @@ def tag_page(request, slug):
         'tags': tags,
         'tag': tag,
         'posts': posts,
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'categories': categories
     }

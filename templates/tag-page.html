@@ -73,15 +73,15 @@
                         
                     </div>
         
-                    <h3 class="category-pageh3 text-center mt-3">Останні новини</h3><hr>
+                    <h3 class="category-pageh3 text-center mt-3">Останні огляди</h3><hr>
                     <div class="sidebar-posts">
                         
-                        {% for news in news_posts %}
+                        {% for review in review_posts %}
                         <div class="sidebar-page-post">
-                            <img class="img-fluid sidebar-page-post-img" src="{{news.main_image.url}}" alt="" srcset="">
+                            <img class="img-fluid sidebar-page-post-img" src="{{review.main_image.url}}" alt="" srcset="">
                             <div class="sidebar-page-post-text">
-                                <a class="read_more" href="{{news.get_absolute_url}}"><h4 class="post-titleh4">{{news.title}}</h4></a>
-                                <p class="autor-date-area">{{news.author.first_name}} {{news.author.last_name}} / {{news.creating_date}}</p>
+                                <a class="read_more" href="{{review.get_absolute_url}}"><h4 class="post-titleh4">{{review.title}}</h4></a>
+                                <p class="autor-date-area">{{review.author.first_name}} {{review.author.last_name}} / {{review.creating_date}}</p>
                             </div>
                         </div>
                         {% endfor %}
