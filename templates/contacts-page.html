@@ -1,1 +1,50 @@
 {% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+
+        <section class="contacts_section pt-2">
+            <h1 class="mt-5">Контактна інформація</h1><hr>
+            <p> 
+                Ви можете звернутися до команди TechCoreUA, надіславши лист на нашу електронну адресу або заповнивши форму нижче.<br>
+                В темі листа вкажіть причину, з якої ви до нас звертаєтеся. <br>
+                Якщо ви хочете повідомити про несправність сайту, знайшли застарілу інформацію чи помилку в тексті - вкажіть в темі "Потребує виправлення". 
+            </p>
+
+            <p>Наша електронна адреса - <a href="mailto:techcoreua@gmail.com">techcoreua@gmail.com</a></p>
+
+            <p>Також слідкуйте за нашими соцмережами, щоб завжи бути в курсі всіх новин та анонсів</p>
+        </section>
+
+        <section class="social_links text-center mt-5">
+            <div id="twitter_link"><a href="https://twitter.com/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-twitter"></i> Twitter | @techcoreua</a></div>
+            <div id="instagram_link"><a href="https://www.instagram.com/techcoreua/" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-instagram"></i> instagram | @techcoreua</a></div>
+            <div id="telegram_link"><a href="https://t.me/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-telegram"></i> Telegram | @techcoreua</a></div>
+        </section>
+
+
+        <section id="mail_me" class="mt-5">
+            <div class="">
+                <h3 style="text-align:center">Маєте що розповісти чи запитати?</h3>
+    
+                <form id="contact-form" action="https://formspree.io/f/xyybevzg" method="POST" class="mt-5">
+                    <label for="">Ім'я</label>
+                    <input type="text" name="name" class="input-field">
+    
+                    <label for="">Тема</label>
+                    <input type="text" name="subject" class="input-field">
+    
+                    <label for="">Електронна адреса</label>
+                    <input type="text" name="email" class="input-field">
+    
+                    <label for="">Повідомлення</label>
+                    <textarea style="resize: none" name="message" class="input-field"></textarea>
+    
+    
+                    <input id='submit-btn' class="btn" type="submit" value='Надіслати'>
+                </form>
+    
+            </div>
+        </section>
+    </div>
+{% endblock content %}

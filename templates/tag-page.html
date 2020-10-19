@@ -47,44 +47,48 @@
                 </div>
     
             </div>
-            <div class="sidebar mb-5">
-                <h3 class="category-pageh3 text-center">Хмара тегів</h3><hr>
-                <div class="tags_cloud mb-3">
-                    {% for tag in tags %}
-                        <a href="{{tag.get_absolute_url}}" class="btn">{{tag.title}}</a>
-                    {% endfor %}
-
-                </div>
-
-                <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
-                <div class="sidebar-posts">
-
-                    {% for manual in manuals_posts %}
-                    <div class="sidebar-page-post">
-                        <img class="img-fluid sidebar-page-post-img" src="{{manual.main_image.url}}" alt="" srcset="">
-                        <div class="sidebar-page-post-text">
-                            <a class="read_more" href="{{manual.get_absolute_url}}"><h4 class="post-titleh4">{{manual.title}}</h4></a>
-                            <p class="autor-date-area">{{manual.author.first_name}} {{manual.author.last_name}} / {{manual.creating_date}}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
+            <div class="sidebar-sticky">
+                <div class="sidebar mb-5">
                     
-                </div>
-
-                <h3 class="category-pageh3 text-center mt-3">Останні новини</h3><hr>
-                <div class="sidebar-posts">
-                     
-                    {% for news in news_posts %}
-                    <div class="sidebar-page-post">
-                        <img class="img-fluid sidebar-page-post-img" src="{{news.main_image.url}}" alt="" srcset="">
-                        <div class="sidebar-page-post-text">
-                            <a class="read_more" href="{{news.get_absolute_url}}"><h4 class="post-titleh4">{{news.title}}</h4></a>
-                            <p class="autor-date-area">{{news.author.first_name}} {{news.author.last_name}} / {{news.creating_date}}</p>
-                        </div>
+                    <h3 class="category-pageh3 text-center">Хмара тегів</h3><hr>
+                    <div class="tags_cloud mb-3">
+                        {% for tag in tags %}
+                            <a href="{{tag.get_absolute_url}}" class="btn">{{tag.title}}</a>
+                        {% endfor %}
+        
                     </div>
-                    {% endfor %}
-
+        
+                    <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
+                    <div class="sidebar-posts">
+        
+                        {% for manual in manuals_posts %}
+                        <div class="sidebar-page-post">
+                            <img class="img-fluid sidebar-page-post-img" src="{{manual.main_image.url}}" alt="" srcset="">
+                            <div class="sidebar-page-post-text">
+                                <a class="read_more" href="{{manual.get_absolute_url}}"><h4 class="post-titleh4">{{manual.title}}</h4></a>
+                                <p class="autor-date-area">{{manual.author.first_name}} {{manual.author.last_name}} / {{manual.creating_date}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+        
+                    <h3 class="category-pageh3 text-center mt-3">Останні огляди</h3><hr>
+                    <div class="sidebar-posts">
+                        
+                        {% for review in review_posts %}
+                        <div class="sidebar-page-post">
+                            <img class="img-fluid sidebar-page-post-img" src="{{review.main_image.url}}" alt="" srcset="">
+                            <div class="sidebar-page-post-text">
+                                <a class="read_more" href="{{review.get_absolute_url}}"><h4 class="post-titleh4">{{review.title}}</h4></a>
+                                <p class="autor-date-area">{{review.author.first_name}} {{review.author.last_name}} / {{review.creating_date}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+        
+                    </div>
                 </div>
+        
             </div>
         </div>
     {% endblock content %}

@@ -1,1 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <section class="about_post pt-5">
+            <h1>TechCoreUA - що це?</h1><hr>
+            <p>
+                Це проект, створений для розвитку українського інтернет-ком'юніті. <br>
+                Наша мета - надавати якісний техно-контент <strong>українською(!)</strong> мовою та створити потужне україномовне середовище технофанів. <br>
+                TechCoreUA - портал, який висвітлює різні технологічні середовища: від Open Source світу, до закритої екосистеми Microsoft.
+                В нас ви знайдете корисні мануали, свіжі і цікаві новини, огляди програм та дистрибутивів, авторські статті.
+                Також ви вільно можете обговорити з іншими відвідувачами той чи інший допис в коментарях.
+            </p>
+            <p>
+                Рекомендуємо також підписатися на наші соцмережі, там ви бачитимете анонси, нові дописи та контент, який не потрапляє на сайт.
+            </p>
+            
+            
+        </section>
+
+        
+
+
+
+        <section class="social_links text-center mt-5">
+            <div id="twitter_link"><a href="https://twitter.com/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-twitter"></i> Twitter | @techcoreua</a></div>
+            <div id="instagram_link"><a href="https://www.instagram.com/techcoreua/" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-instagram"></i> instagram | @techcoreua</a></div>
+            <div id="telegram_link"><a href="https://t.me/techcoreua" class="nav-link nav-link-footer" target="_blank"><i class="fab fa-telegram"></i> Telegram | @techcoreua</a></div>
+        </section>
+
+        <div class="logoimg mb-5 pt-3 mt-5">
+            <img src="{% static '/logo_big.png' %}" alt="logo" style="width: 100%;" class="img-fluid">
+        </div>
+
+    </div>
+{% endblock content %}

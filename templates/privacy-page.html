@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5 mb-5 privacy-post">
+        <div class="pt-5 pb-5">
+            <article aria-label="Privacy Policy">
+                <header class="entry-header">
+                    <h1 class="entry-title" itemprop="headline">
+                        Політика приватності
+                    </h1>
+                </header><hr>
+                <div class="entry-content" itemprop="text">
+                    <p>
+                        <a rel="noopener noreferrer" href="/" target="_blank">TechCoreUA</a> створено цю заяву про приватніть щоб продемонструвати нашу тверду прихильність до приватності. 
+                        Далі розкривається практика збору і розповсюдження інформації для сайту <a rel="noopener noreferrer" href="/" target="_blank">techcoreua.tk</a>.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Файли Cookies</strong>:<br>
+                            На нашому сайті ми використовуємо файли Cookies.
+                        </li>
+                        <li>
+                            <strong>Рекламні сервіси</strong>:<br>
+                            На сайті використовуються рекламні сервіси Google. 
+                            Будь ласка <a rel="noreferrer noopener" href="https://policies.google.com/technologies/partner-sites" target="_blank">прочитайте як Google використовує інформацію з нашого сайту</a>. 
+                            Google може постачати персоналізовані рекламні оголошення, тож прочитайте як ви можете контролювати це.
+                        </li>
+                        <li>
+                            <strong>Сторонні файли Cookies</strong>:<br>
+                            Постачаючи рекламні оголошення рекламодавець може встановлювати у ваш браузер власні файли cookies. 
+                            Якщо ви хочете позбутися цих файлів cookies, ви маєте власноруч видалити їх, дотримуючись інструкцій у розділі "Допомога" вашого браузеру.<strong><br></strong>
+                        </li>
+                        <li style="text-align: justify;"><strong>Зовнішні посилання</strong>:<br>
+                            TechCoreUA містить посилання на інші сайти в мережі Інтернет. 
+                            Ми не несемо відповідальності щодо практик приватності чи контенту на цих сайтах. Ми також уникаємо посилань на так звані "сайти для дорослих". TechCoreUA безпечний для всіх користувачів незалежно від віку.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+        <div class="logoimg mb-5 mt-5">
+            <img src="{% static '/logo_big.png' %}" alt="logo" style="width: 100%;" class="img-fluid">
+        </div>
+    </div>
+{% endblock content %}

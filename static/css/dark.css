@@ -20,6 +20,16 @@ hr{
     padding: 2px;
 }
 
+.about_post,
+.about_post p,
+.privacy-post p,
+.privacy-post,
+#mail_me,
+.contacts_section p,
+.contacts_section{
+    color: var(--mainHeaderscolorDark);
+}
+
 
 
 body{

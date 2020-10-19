@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 from django.db.models import Q
@@ -54,9 +54,10 @@ def index(request):
 def category_page(request, slug):
     tags = Tags.objects.all()
     categories = Category.objects.all()
-    category = Category.objects.filter(slug=slug).first()
+    # category = Category.objects.filter(slug=slug).first()
+    category = get_object_or_404(Category, slug=slug)
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
 
     posts_list = Post.objects.filter(category=category)
@@ -75,7 +76,7 @@ def category_page(request, slug):
     context={
         'tags': tags,
         'posts': posts, 
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'category': category, 
         'categories': categories
@@ -88,7 +89,7 @@ def post_page(request, slug):
     categories = Category.objects.all()
     post_tags = post.tags.all()
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
     
 
@@ -96,7 +97,7 @@ def post_page(request, slug):
     context = {
         'tags': tags,
         'post': post, 
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'categories': categories, 
         'post_tags': post_tags 
@@ -108,7 +109,7 @@ def tag_page(request, slug):
     tag = Tags.objects.filter(slug=slug).first()
     categories = Category.objects.all()
 
-    news_posts = Post.objects.filter(category__title='Новини').all()
+    review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
 
     posts_list = tag.post_set.all()
@@ -128,7 +129,7 @@ def tag_page(request, slug):
         'tags': tags,
         'tag': tag,
         'posts': posts,
-        'news_posts': news_posts,
+        'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'categories': categories
     }
@@ -163,3 +164,34 @@ class SearchView(ListView):
         context = super(ListView, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         return context
+
+
+def contacts(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'contacts-page.html', context=context)
+
+def about(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'about-page.html', context=context)
+
+def privacy(request):
+    context= {
+        'categories': Category.objects.all()
+    }
+    return render(request, 'privacy-page.html', context=context)
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "errors/404.html", {})
+
+def custom_error_view(request, exception=None):
+    return render(request, "errors/500.html", {})
+
+def custom_permission_denied_view(request, exception=None):
+    return render(request, "errors/403.html", {})
+
+def custom_bad_request_view(request, exception=None):
+    return render(request, "errors/400.html", {})

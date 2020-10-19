@@ -10,6 +10,7 @@ import re
 
 class Category(models.Model):
     title = models.CharField(max_length=50, verbose_name='Категорія')
+    description = models.CharField(max_length=100, verbose_name='Опис, що з\'явиться при наведенні курсору')
     slug = AutoSlugField(populate_from='title',
                         unique=True,
                         allow_unicode=True,
@@ -56,8 +57,6 @@ class Post(models.Model):
     star = models.BooleanField(verbose_name='Star', default=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     
-    if author:
-        print(author)
 
     def __str__(self):
         return self.title
