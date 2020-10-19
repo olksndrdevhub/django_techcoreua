@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ruda:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 :root{
     --mainColor:#32373B;
@@ -13,7 +16,7 @@
     --mainHeaderscolorLight:#32373B; /*as main color*/
     --mainHeaderscolorDark:#8A97A1;
 
-    --mainFont:'Ruda', sans-serif;
+    --mainFont:'Fira Sans', sans-serif;
 
 }
 
