@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 from django.db.models import Q
@@ -54,7 +54,8 @@ def index(request):
 def category_page(request, slug):
     tags = Tags.objects.all()
     categories = Category.objects.all()
-    category = Category.objects.filter(slug=slug).first()
+    # category = Category.objects.filter(slug=slug).first()
+    category = get_object_or_404(Category, slug=slug)
 
     review_posts = Post.objects.filter(category__title='Огляди').all()
     manuals_posts = Post.objects.filter(category__title='Мануали').all()
