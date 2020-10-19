@@ -42,7 +42,7 @@ if env('ENV') == 'production':
 elif env('ENV') == 'development':
     DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'techcoreua.tk', 'www.techcoreua.tk']
 
 
 # Application definition
