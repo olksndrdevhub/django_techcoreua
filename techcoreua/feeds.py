@@ -23,8 +23,8 @@ class ExtendedRSSFeed(Rss201rev2Feed):
         # 'content_encoded' is added to the item below, in item_extra_kwargs()
         # It's populated in item_your_custom_field(). Here we're creating
         # the <content:encoded> element and adding it to our feed xml
-        if item['content_encoded'] is not None:
-            handler.addQuickElement(u'content_encoded', item['content_encoded'])
+        if item['content:encoded'] is not None:
+            handler.addQuickElement(u'content:encoded', item['content:encoded'])
 
 class LatestPostsFeed(Feed):
     title = 'Дописи на сайті TechCoreUa'
@@ -54,13 +54,13 @@ class LatestPostsFeed(Feed):
     def item_author_email(self):
         return 'oleksandr.romaniuk.work@gmail.com'
 
-    def item_content_encoded(self, item):
-        content = '<![CDATA[ <div><img src="{}" style="width:100%" class="img-fluid"></div>{}]]>'.format(item.main_image.url, item.text)
+    # def item_content_encoded(self, item):
+    #     content = '<![CDATA[ <div><img src="{}" style="width:100%" class="img-fluid"></div>{}]]>'.format(item.main_image.url, item.text)
 
     
     def item_extra_kwargs(self, item):
         extra = super(LatestPostsFeed, self).item_extra_kwargs(item)
         content = '<![CDATA[ <div><img src="{}" style="width:100%" class="img-fluid"></div>{}]]>'.format(item.main_image.url, item.text)
-        extra.update({'content_encoded': content})
+        extra.update({'content:encoded': content})
         return extra
 
