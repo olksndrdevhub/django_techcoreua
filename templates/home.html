@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta_tags %}
+    <title>TechCoreUA - Український Технологічний Портал</title>
+    <meta name = "description" content = "Український технологічний портал. Розповідаємо про технології українською!">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@techcoreua" />
+    <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
+    <meta property="og:url" content="{{request.build_absolute_uri}}" />
+    <meta property="og:title" content="TechCoreUA - Український Тeхнологічний Портал" />
+    <meta property="og:description" content="Український технологічний портал. Розповідаємо про технології українською!" />
+    <meta property="og:image" content="https://{{request.get_host}}/static/logo_big.png" />
+    
+{% endblock meta_tags %}
+
 {% block content %}
         <div class="col-12 top-box mt-5 pt-4">
             <div class="top-posts post1" style="background-image: url({{s_p_1.main_image.url}});">

@@ -1,10 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta_tags %}      
+    <title>Результати пошуку за запитом {{request.GET.q}} | TechCoreUA</title>
+    <meta name = "description" content = "Всі дописи на сайті TechCoreUA за запитом {{request.GET.q}}">
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@techcoreua" />
+    <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
+    <meta property="og:url" content="{{request.build_absolute_uri}}" />
+    <meta property="og:title" content="Результати пошуку за запитом {{request.GET.q}} | TechCoreUA" />
+    <meta property="og:description" content="Всі дописи на сайті TechCoreUA за запитом {{request.GET.q}}" />
+    <meta property="og:image" content="https://{{request.get_host}}/static/logo_big.png" />
+{% endblock meta_tags %}
+
 {% block content %}
         <div class="col-12 mt-5 pt-5">
             <div class="wrapper">
-                <h3 class="category-pageh3 text-center">Дописи за запитом: {{request.GET.q}}</h3><hr>
+                <h3 class="category-pageh3 text-center">Дописи за запитом {{request.GET.q}}:</h3><hr>
                 
                     {% if object_list|length %}
                         <div class="category-page-posts">

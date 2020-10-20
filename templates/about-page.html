@@ -1,6 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta_tags %}      
+    <title>Про нас | TechCoreUA</title>
+    <meta name = "description" content = "Детальна інформація про проект TechCoreUA">
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@techcoreua" />
+    <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
+    <meta property="og:url" content="{{request.build_absolute_uri}}" />
+    <meta property="og:title" content="Про нас | TechCoreUA" />
+    <meta property="og:description" content="Детальна інформація про проект TechCoreUA" />
+    <meta property="og:image" content="https://{{request.get_host}}/static/logo_big.png" />
+{% endblock meta_tags %}
 
 {% block content %}
     <div class="container mt-5 mb-5">
@@ -31,7 +44,7 @@
         </section>
 
         <div class="logoimg mb-5 pt-3 mt-5">
-            <img src="{% static '/logo_big.png' %}" alt="logo" style="width: 100%;" class="img-fluid">
+            <img src="{% static '/logo_big.png' %}" alt="logo" style="width: 15%;" class="img-fluid">
         </div>
 
     </div>

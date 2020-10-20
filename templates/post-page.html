@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 
-{% block twitter_meta %}        
+{% block meta_tags %}      
+    <title>{{post.title}} | TechCoreUA</title>
+    <meta name = "description" content = "{{post.preview_text|safe}}">
+
+
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@techcoreua" />
     <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
     <meta property="og:url" content="{{request.build_absolute_uri}}" />
     <meta property="og:title" content="{{post.title}}" />
     <meta property="og:description" content="{{post.preview_text|safe}}" />
-<meta property="og:image" content="https://{{request.get_host}}{{post.main_image.url}}" />
-{% endblock twitter_meta %}
+    <meta property="og:image" content="https://{{request.get_host}}{{post.main_image.url}}" />
+{% endblock meta_tags %}
 
 {% block content %}
 <div class="post-page-container col-12 mt-5 pt-5">
