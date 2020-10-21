@@ -9,7 +9,7 @@ from .models import Category, Post, Tags
 
 
 def index(request):
-    posts_list = Post.objects.all()
+    posts_list = Post.objects.filter(draft=False).all()
 
     page = request.GET.get('page', 1)
     paginator = Paginator(posts_list, 10)
@@ -23,14 +23,14 @@ def index(request):
 
     tags = Tags.objects.all()
     categories = Category.objects.all()
-    starres_posts = Post.objects.filter(star=True).all()
+    starres_posts = Post.objects.filter(star=True, draft=False).all()
     s_p_1 = starres_posts[0]
     s_p_2 = starres_posts[1]
     s_p_3 = starres_posts[2]
 
-    windows_posts = Post.objects.filter(category__title='Windows').all()
-    linux_posts = Post.objects.filter(category__title='Linux').all()
-    manuals_posts = Post.objects.filter(category__title='Мануали').all()
+    windows_posts = Post.objects.filter(category__title='Windows', draft=False).all()
+    linux_posts = Post.objects.filter(category__title='Linux', draft=False).all()
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
 
     last_windows_posts = windows_posts[0:3]
     last_linux_posts = linux_posts[0:3]
@@ -57,10 +57,10 @@ def category_page(request, slug):
     # category = Category.objects.filter(slug=slug).first()
     category = get_object_or_404(Category, slug=slug)
 
-    review_posts = Post.objects.filter(category__title='Огляди').all()
-    manuals_posts = Post.objects.filter(category__title='Мануали').all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
 
-    posts_list = Post.objects.filter(category=category)
+    posts_list = Post.objects.filter(category=category, draft=False)
 
 
     page = request.GET.get('page', 1)
@@ -85,12 +85,12 @@ def category_page(request, slug):
 
 def post_page(request, slug):
     tags = Tags.objects.all()
-    post = Post.objects.filter(slug=slug).first()
+    post = Post.objects.filter(slug=slug, draft=False).first()
     categories = Category.objects.all()
     post_tags = post.tags.all()
 
-    review_posts = Post.objects.filter(category__title='Огляди').all()
-    manuals_posts = Post.objects.filter(category__title='Мануали').all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
     
 
 
@@ -109,10 +109,10 @@ def tag_page(request, slug):
     tag = Tags.objects.filter(slug=slug).first()
     categories = Category.objects.all()
 
-    review_posts = Post.objects.filter(category__title='Огляди').all()
-    manuals_posts = Post.objects.filter(category__title='Мануали').all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
 
-    posts_list = tag.post_set.all()
+    posts_list = tag.post_set.filter(draft=False).all()
 
     page = request.GET.get('page', 1)
     paginator = Paginator(posts_list, 10)
@@ -145,7 +145,7 @@ class SearchView(ListView):
     def get_queryset(self): # new
         query = self.request.GET.get('q')
         objects = Post.objects.filter(
-            Q(title__icontains=query)
+            Q(title__icontains=query, draft=False)
         )
         page = self.request.GET.get('page', 1)
         paginator = Paginator(objects, 10)

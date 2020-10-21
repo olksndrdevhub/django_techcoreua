@@ -54,8 +54,9 @@ class Post(models.Model):
     creating_date = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tags, verbose_name='Теги')
-    star = models.BooleanField(verbose_name='Star', default=False)
+    star = models.BooleanField(verbose_name='Топ-пости(3)', default=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
+    draft = models.BooleanField(verbose_name='Чернетка', default=True)
     
 
     def __str__(self):
