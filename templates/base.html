@@ -76,6 +76,7 @@
             {% if request.user.is_staff %}
                 <a href="{% url 'admin:index' %}" class="nav-link"><strong>Адмінпанель</strong></a>
                 <a href="/admin/filebrowser/browse/" class="nav-link"><strong>Файли</strong></a>
+                <a href="/drafts/" class="nav-link"><strong>Чернетки</strong></a>
             {% endif %}
             <a class="nav-link" href="{% url 'account_logout' %}"><strong><i class="fas fa-sign-out-alt"></i></strong></a>
           </div>

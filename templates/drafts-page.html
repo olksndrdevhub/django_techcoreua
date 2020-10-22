@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block meta_tags %}      
+    <title>Чернетки | TechCoreUA</title>
+    
+{% endblock meta_tags %}
+
+{% block content %}
+    <div class="mt-5 mb-5 pt-5">
+        {% for draft in drafts %}
+        <div class="container">
+            <div class="post-container">
+                <img src="{{draft.main_image.url}}" alt="" class="img-fluid">
+                <p class="autor-date-area">{{draft.author.first_name}} {{draft.author.last_name}} / {{draft.creating_date}}</p>
+                <hr>
+                <div class="post-text">
+                    <h3 class="post-titleh3 p-p-dark">{{draft.title}}</h3>
+                    <p class="post-preview">{{draft.preview_text|safe}}</p>
+                    <p class="p-p-post-text">{{draft.text|safe}}</p>
+                    <div class="tags_cloud mt-4 bg-transparent">
+                        {% for tag in draft.tags.all %}
+                            <a href="{{tag.get_absolute_url}}" class="btn">{{tag.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="sharethis-inline-share-buttons mb-5"></div>
+                
+                
+            </div>
+        </div><hr>  
+        {% endfor %}
+    </div>
+{% endblock content %}

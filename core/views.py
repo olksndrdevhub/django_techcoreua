@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Category, Post, Tags
@@ -164,6 +165,18 @@ class SearchView(ListView):
         context = super(ListView, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         return context
+
+@login_required
+def drafts(request):
+    drafts = Post.objects.filter(draft=True).all()
+
+
+    context = {
+        'drafts': drafts
+    }
+
+    return render(request, 'drafts-page.html', context=context)
+
 
 
 def contacts(request):
