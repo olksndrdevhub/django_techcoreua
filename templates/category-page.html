@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block meta_tags %}      
-    <title>{{category.title}} | TechCoreUA</title>
+    <title>{{category.title}} | Techcoreua</title>
     <meta name = "description" content = "{{category.description}}">
 
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@TechcoreuaT" />
-    <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
+    <meta name="twitter:site" content="@techcoreua" />
+    <!-- <meta name="twitter:creator" content="@tse_ne_ia" /> -->
     <meta property="og:url" content="{{request.build_absolute_uri}}" />
-    <meta property="og:title" content="{{category.title}} | TechCoreUA" />
+    <meta property="og:title" content="{{category.title}} | Techcoreua" />
     <meta property="og:description" content="{{category.description}}" />
     <meta property="og:image" content="https://{{request.get_host}}/static/logo_big.png" />
 {% endblock meta_tags %}

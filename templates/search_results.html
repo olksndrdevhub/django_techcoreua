@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block meta_tags %}      
-    <title>Результати пошуку за запитом {{request.GET.q}} | TechCoreUA</title>
-    <meta name = "description" content = "Всі дописи на сайті TechCoreUA за запитом {{request.GET.q}}">
+    <title>Результати пошуку за запитом {{request.GET.q}} | Techcoreua</title>
+    <meta name = "description" content = "Всі дописи на сайті Techcoreua за запитом {{request.GET.q}}">
 
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@TechcoreuaT" />
+    <meta name="twitter:site" content="@techcoreua" />
     <!-- <meta name="twitter:creator" content="@nickbilton" /> -->
     <meta property="og:url" content="{{request.build_absolute_uri}}" />
-    <meta property="og:title" content="Результати пошуку за запитом {{request.GET.q}} | TechCoreUA" />
-    <meta property="og:description" content="Всі дописи на сайті TechCoreUA за запитом {{request.GET.q}}" />
+    <meta property="og:title" content="Результати пошуку за запитом {{request.GET.q}} | Techcoreua" />
+    <meta property="og:description" content="Всі дописи на сайті Techcoreua за запитом {{request.GET.q}}" />
     <meta property="og:image" content="https://{{request.get_host}}/static/logo_big.png" />
 {% endblock meta_tags %}
 
