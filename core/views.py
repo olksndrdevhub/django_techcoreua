@@ -29,7 +29,7 @@ def index(request):
     s_p_2 = starres_posts[1]
     s_p_3 = starres_posts[2]
 
-    windows_posts = Post.objects.filter(category__title='Windows', draft=False).all()
+    windows_posts = Post.objects.filter(category__title='Microsoft', draft=False).all()
     linux_posts = Post.objects.filter(category__title='Linux', draft=False).all()
     manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
 

@@ -3,7 +3,7 @@ Disallow: /admin_panel/
 Disallow: /accounts/
 Disallow: /ckeditor/
 Disallow: /drafts/
-Disallow /admin/filebrowser/browse/
+Disallow: /admin/filebrowser/browse/
 
 
 User-agent: Googlebot
