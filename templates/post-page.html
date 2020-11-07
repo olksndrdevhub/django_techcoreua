@@ -15,7 +15,7 @@
 {% endblock meta_tags %}
 
 {% block content %}
-<div class="post-page-container col-12 mt-5 pt-5">
+<div class="post-page-container col-10 offset-md-1 mt-5 pt-5">
     <div class="post-container">
         <img src="{{post.main_image.url}}" alt="" class="img-fluid">
         <p class="autor-date-area">{{post.author.first_name}} {{post.author.last_name}} / {{post.creating_date}}</p>
