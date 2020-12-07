@@ -58,8 +58,8 @@ def category_page(request, slug):
     # category = Category.objects.filter(slug=slug).first()
     category = get_object_or_404(Category, slug=slug)
 
-    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
-    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False)[:3]
 
     posts_list = Post.objects.filter(category=category, draft=False)
 
@@ -90,8 +90,8 @@ def post_page(request, slug):
     categories = Category.objects.all()
     post_tags = post.tags.all()
 
-    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
-    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False)[0:3]
     
 
 
@@ -110,8 +110,8 @@ def tag_page(request, slug):
     tag = Tags.objects.filter(slug=slug).first()
     categories = Category.objects.all()
 
-    review_posts = Post.objects.filter(category__title='Огляди', draft=False).all()
-    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False).all()
+    review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
+    manuals_posts = Post.objects.filter(category__title='Мануали', draft=False)[:3]
 
     posts_list = tag.post_set.filter(draft=False).all()
 
