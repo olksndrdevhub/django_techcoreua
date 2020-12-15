@@ -43,7 +43,7 @@
     
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          {% for category in categories %}
+          {% for category in request.categories %}
           <li class="nav-item nav-item-custom">
           <a class="nav-link nav-link-custom" href="{{category.get_absolute_url}}" title="{{category.description}}">{{category.title}}</a>
           </li>

@@ -23,7 +23,6 @@ def index(request):
         posts = paginator.page(paginator.num_pages)
 
     tags = Tags.objects.all()
-    categories = Category.objects.all()
     starres_posts = Post.objects.filter(star=True, draft=False).all()
     s_p_1 = starres_posts[0]
     s_p_2 = starres_posts[1]
@@ -44,7 +43,6 @@ def index(request):
         's_p_3': s_p_3,
         'tags': tags,
         'posts': posts,
-        'categories': categories,
         'last_windows_posts': last_windows_posts,
         'last_linux_posts': last_linux_posts,
         'last_manuals_posts': last_manuals_posts
@@ -54,8 +52,6 @@ def index(request):
 
 def category_page(request, slug):
     tags = Tags.objects.all()
-    categories = Category.objects.all()
-    # category = Category.objects.filter(slug=slug).first()
     category = get_object_or_404(Category, slug=slug)
 
     review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
@@ -80,14 +76,12 @@ def category_page(request, slug):
         'review_posts': review_posts,
         'manuals_posts': manuals_posts,
         'category': category, 
-        'categories': categories
     }
     return render(request, 'category-page.html', context=context)
 
 def post_page(request, slug):
     tags = Tags.objects.all()
     post = Post.objects.filter(slug=slug, draft=False).first()
-    categories = Category.objects.all()
     post_tags = post.tags.all()
 
     review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
@@ -100,7 +94,6 @@ def post_page(request, slug):
         'post': post, 
         'review_posts': review_posts,
         'manuals_posts': manuals_posts,
-        'categories': categories, 
         'post_tags': post_tags 
     }
     return render(request, 'post-page.html', context=context)
@@ -108,7 +101,6 @@ def post_page(request, slug):
 def tag_page(request, slug):
     tags = Tags.objects.all()
     tag = Tags.objects.filter(slug=slug).first()
-    categories = Category.objects.all()
 
     review_posts = Post.objects.filter(category__title='Огляди', draft=False)[:3]
     manuals_posts = Post.objects.filter(category__title='Мануали', draft=False)[:3]
@@ -132,7 +124,6 @@ def tag_page(request, slug):
         'posts': posts,
         'review_posts': review_posts,
         'manuals_posts': manuals_posts,
-        'categories': categories
     }
     return render(request, 'tag-page.html', context=context)
 
@@ -140,7 +131,6 @@ def tag_page(request, slug):
 class SearchView(ListView):
     model = Post
     template_name = 'search_results.html'
-    # context_object_name = 'context'
 
 
     def get_queryset(self): # new
@@ -162,8 +152,8 @@ class SearchView(ListView):
         return object_list
     
     def get_context_data(self, **kwargs):
+
         context = super(ListView, self).get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
         return context
 
 @login_required
@@ -180,22 +170,13 @@ def drafts(request):
 
 
 def contacts(request):
-    context= {
-        'categories': Category.objects.all()
-    }
-    return render(request, 'contacts-page.html', context=context)
+    return render(request, 'contacts-page.html')
 
 def about(request):
-    context= {
-        'categories': Category.objects.all()
-    }
-    return render(request, 'about-page.html', context=context)
+    return render(request, 'about-page.html')
 
 def privacy(request):
-    context= {
-        'categories': Category.objects.all()
-    }
-    return render(request, 'privacy-page.html', context=context)
+    return render(request, 'privacy-page.html')
 
 def custom_page_not_found_view(request, exception):
     return render(request, "errors/404.html", {})
