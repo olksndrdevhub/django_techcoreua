@@ -16,14 +16,14 @@
 {% endblock meta_tags %}
 
 {% block content %}
-        <div class="col-12 top-box mt-5 pt-4">
+        <div class="col-12 top-box mt-5">
             <div class="top-posts post1" style="background-image: url({{s_p_1.main_image.url}});">
                 <!-- <img class="post1-image-top img-fluid" src="/media/template.png" alt="" srcset=""> -->
                 <div class="post1-title-top">
                     <a class="read_more read_more-top" href="{{s_p_1.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_1.title}}</h4>
                     </a>
-                    <p class="text-left autor-date-area">{{s_p_1.author.first_name}} {{s_p_1.author.last_name}} / {{s_p_1.creating_date}}</p>
+                    <p class="text-left autor-date-area"><i class="far fa-user"></i> {{s_p_1.author.first_name}} {{s_p_1.author.last_name}} / <i class="far fa-clock"></i> {{s_p_1.creating_date}}</p>
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
                     <a class="read_more read_more-top" href="{{s_p_2.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_2.title}}</h4>
                     </a>
-                    <p class="text-left autor-date-area">{{s_p_2.author.first_name}} {{s_p_2.author.last_name}} / {{s_p_2.creating_date}}</p>
+                    <p class="text-left autor-date-area"><i class="far fa-user"></i>{{s_p_2.author.first_name}} {{s_p_2.author.last_name}} / <i class="far fa-clock"></i> {{s_p_2.creating_date}}</p>
                 </div>
             </div>     
 
@@ -44,7 +44,7 @@
                     <a class="read_more read_more-top" href="{{s_p_3.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_3.title}}</h4>
                     </a>
-                    <p class="text-left autor-date-area">{{s_p_3.author.first_name}} {{s_p_3.author.last_name}} / {{s_p_3.creating_date}}</p>
+                    <p class="text-left autor-date-area"><i class="far fa-user"></i> {{s_p_3.author.first_name}} {{s_p_3.author.last_name}} / <i class="far fa-clock"></i> {{s_p_3.creating_date}}</p>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                             <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
                                 <h6 class="post-titleh6">{{post.title}}</h6>
                             </a>
-                            <p class="text-left autor-date-area">{{post.creating_date}}</p>
+                            <p class="text-left autor-date-area"><i class="far fa-clock"></i> {{post.creating_date}}</p>
                         </div>
         
                     </div>
@@ -78,7 +78,7 @@
                             <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
                                 <h6 class="post-titleh6">{{post.title}}</h6>
                             </a>
-                            <p class="text-left autor-date-area">{{post.creating_date}}</p>
+                            <p class="text-left autor-date-area"><i class="far fa-clock"></i> {{post.creating_date}}</p>
                         </div>
         
                     </div>
@@ -96,7 +96,7 @@
                             <a class="read_more read_more-center" href="{{post.get_absolute_url}}">
                                 <h6 class="post-titleh6">{{post.title}}</h6>
                             </a>
-                            <p class="text-left autor-date-area">{{post.creating_date}}</p>
+                            <p class="text-left autor-date-area"><i class="far fa-clock"></i> {{post.creating_date}}</p>
                         </div>
         
                     </div>
@@ -115,8 +115,9 @@
                         <img class="post-image-bottom img-fluid" src="{{post.main_image.url}}" alt="" srcset="">
                         <div class="post-title-bottom">
                             <a class="read_more read_more-bottom" href="{{post.get_absolute_url}}"><h4 class="post-titleh4">{{post.title}}</h4></a>
-                            <p class="autor-date-area">{{post.author.first_name}} {{post.author.last_name}} / {{post.creating_date}}</p>
+                            <p class="autor-date-area"><i class="far fa-user"></i> {{post.author.first_name}} {{post.author.last_name}} / <i class="far fa-clock"></i> {{post.creating_date}}</p>
                             <p class="post-preview">{{post.preview_text|safe}}</p>
+                            
 
                         </div>
                     </div>

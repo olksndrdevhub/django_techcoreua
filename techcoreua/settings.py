@@ -44,6 +44,9 @@ elif env('ENV') == 'development':
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'techcoreua.tk', 'www.techcoreua.tk']
 
+if env('ENV') == 'development':
+    ALLOWED_HOSTS.append('*')
+
 
 # Application definition
 

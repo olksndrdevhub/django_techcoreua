@@ -1,8 +1,12 @@
 hr{
     background-color: var(--mainHeaderscolorDark);
 }
-.midlle-posts > h3,
-.bottom-box > h3,
+.midlle-posts h6,
+.midlle-posts h3,
+.midlle-posts p,
+.bottom-box p,
+.bottom-box h3,
+.bottom-box h4,
 .category-pageh3{
     color: var(--mainHeaderscolorDark);
 }
@@ -33,5 +37,5 @@ hr{
 
 
 body{
-    background-color: #121212;
+    background-color: #212121;
 }

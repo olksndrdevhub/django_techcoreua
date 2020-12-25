@@ -28,8 +28,7 @@
                                     <div class="category-page-post-text">
                                         <a class="read_more" href="{{post.get_absolute_url}}"><h4 class="post-titleh4">{{post.title}}</h4></a>
                                         <p class="autor-date-area">admin / {{post.creating_date}}</p>
-                                        <p class="post-preview">{{post.preview_text}}</p>
-
+                                        <p class="autor-date-area pt-3 pb-2"><i class="far fa-user"></i> {{post.author.first_name}} {{post.author.last_name}} / <i class="far fa-clock"></i> {{post.creating_date}}</p>
                                     </div>
                                 </div>
                             {% endfor %}

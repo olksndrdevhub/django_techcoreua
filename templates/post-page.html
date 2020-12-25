@@ -15,14 +15,27 @@
 {% endblock meta_tags %}
 
 {% block content %}
-<div class="post-page-container col-12 mt-5 pt-5">
-    <div class="post-container">
-        <img src="{{post.main_image.url}}" alt="" class="img-fluid">
-        <p class="autor-date-area">{{post.author.first_name}} {{post.author.last_name}} / {{post.creating_date}}</p>
-        <hr>
-        <div class="post-text">
-            <h3 class="post-titleh3 p-p-dark">{{post.title}}</h3>
+<div class="post-header-container mt-5 pt-3">
+    <div class="img-container">
+        <img src="{{post.main_image.url}}" alt="" class="img-fluid header-img">
+    </div>
+    <div class="post-header-wrap">
+        <header>
+            <p class="post-header-category">Категорія: <a href="{{post.category.get_absolute_url}}">{{post.category}}</p></a>
+            <h1 class="post-titleh3 p-p-dark">{{post.title}}</h1>
             <p class="post-preview">{{post.preview_text|safe}}</p>
+            <img src="{{post.main_image.url}}" alt="" class="img-fluid mobile-post-img">
+            <p class="autor-date-area pt-3 pb-2"><i class="far fa-user"></i> {{post.author.first_name}} {{post.author.last_name}} / <i class="far fa-clock"></i> {{post.creating_date}}</p>
+        </header>
+    </div>
+</div>
+<div class="post-page-container col-8 offset-2 mt-3">
+    <div class="post-container">
+        <!-- <p class="autor-date-area">{{post.author.first_name}} {{post.author.last_name}} / {{post.creating_date}}</p>
+        <hr> -->
+        <div class="post-text">
+            <!-- <h3 class="post-titleh3 p-p-dark">{{post.title}}</h3>
+            <p class="post-preview">{{post.preview_text|safe}}</p> -->
             <p class="p-p-post-text">{{post.text|safe}}</p>
             <div class="tags_cloud mt-4 bg-transparent">
                 {% for tag in post_tags %}
@@ -30,20 +43,12 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="sharethis-inline-share-buttons mb-5"></div>
+        <div class="sharethis-inline-share-buttons mb-3 mt-3"></div>
         <div id="disqus_thread"></div>
         
     </div>
     <div class="sidebar">
         <div class="sidebar mb-5">
-            
-            <h3 class="category-pageh3 text-center">Хмара тегів</h3><hr>
-            <div class="tags_cloud mb-3">
-                {% for tag in tags %}
-                    <a href="{{tag.get_absolute_url}}" class="btn">{{tag.title}}</a>
-                {% endfor %}
-
-            </div>
 
             <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
             <div class="sidebar-posts">
@@ -74,6 +79,16 @@
                 {% endfor %}
 
             </div>
+
+            <h3 class="category-pageh3 text-center">Хмара тегів</h3><hr>
+            <div class="tags_cloud mb-3">
+                {% for tag in tags %}
+                    <a href="{{tag.get_absolute_url}}" class="btn">{{tag.title}}</a>
+                {% endfor %}
+
+            </div>
+
+
         </div>
 
     </div>
