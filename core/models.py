@@ -44,9 +44,11 @@ class Tags(models.Model):
 
 
 class Post(models.Model):
+    """docstring"""
+
     title = models.CharField(max_length=150, verbose_name='Назва')
     main_image = models.ImageField(verbose_name='Головне фото', upload_to='uploads/main_images')
-    preview_text = models.CharField(verbose_name='Текст-прев\`ю', max_length=300)
+    preview_text = models.CharField(verbose_name='Текст-прев\`ю', max_length=300, blank=True)
     text = models.CharField(max_length=20000, verbose_name='Текст')
     slug = AutoSlugField(populate_from='title',
                         unique=True,
@@ -56,7 +58,7 @@ class Post(models.Model):
     
     creating_date = models.DateTimeField(verbose_name='Дата створення', auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tags, verbose_name='Теги')
+    tags = models.ManyToManyField(Tags, verbose_name='Теги', blank=True)
     star = models.BooleanField(verbose_name='Топ-пости(3)', default=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     draft = models.BooleanField(verbose_name='Чернетка', default=True)
