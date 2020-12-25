@@ -364,7 +364,7 @@ hr{
 
 /* category page sidebar */
 .sidebar{
-    position: sticky;
+    /* position: sticky; */
     top: 10%;
 }
 
