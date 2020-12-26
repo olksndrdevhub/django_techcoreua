@@ -54,11 +54,11 @@
 
         <div class="switchbox" style="display: flex;">
 
-          <div class="sun theme-mode" data-mode='light'>
+          <div class="sun theme-mode custom-hovers" data-mode='light'>
             <i class="fas fa-lightbulb fa-lg"></i>
           </div>
   
-          <div class="moon theme-mode" data-mode='dark'>
+          <div class="moon theme-mode custom-hovers" data-mode='dark'>
             <i class="far fa-lightbulb fa-lg"></i>
           </div>
   
@@ -67,7 +67,7 @@
       
 
         <form class="form-inline mb-4 my-lg-0" method="GET" action="{% url 'core:search_results' %}">
-          <input class="form-control mr-sm-2 custom-input" type="text" placeholder="Пошук" name="q">
+          <input required oninvalid="this.setCustomValidity('Будь ласка, вкажіть дані для пошуку')" onchange="this.setCustomValidity('')" class="form-control mr-sm-2 custom-input" type="text" placeholder="Введіть запит" name="q" id="search-input">
           <button class="btn my-2 my-sm-0 custom-search-button" type="submit">Пошук</button>
         </form>
 
@@ -154,6 +154,11 @@
   
   
   </script>
+
+  <script>
+    // document.getElementById('search-input').setCustomValidity('Будь ласка, вкажіть дані для пошуку');
+  </script>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

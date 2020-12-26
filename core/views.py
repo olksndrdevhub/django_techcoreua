@@ -37,7 +37,6 @@ def index(request):
     last_manuals_posts = manuals_posts[0:3]
 
     context = {
-        'posts': posts,
         's_p_1': s_p_1,
         's_p_2': s_p_2,
         's_p_3': s_p_3,

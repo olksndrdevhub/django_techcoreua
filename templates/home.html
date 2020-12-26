@@ -20,7 +20,7 @@
             <div class="top-posts post1" style="background-image: url({{s_p_1.main_image.url}});">
                 <!-- <img class="post1-image-top img-fluid" src="/media/template.png" alt="" srcset=""> -->
                 <div class="post1-title-top">
-                    <a class="read_more read_more-top" href="{{s_p_1.get_absolute_url}}">
+                    <a class="read_more-top" href="{{s_p_1.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_1.title}}</h4>
                     </a>
                     <p class="text-left autor-date-area"><i class="far fa-user"></i> {{s_p_1.author.first_name}} {{s_p_1.author.last_name}} / <i class="far fa-clock"></i> {{s_p_1.creating_date}}</p>
@@ -31,17 +31,17 @@
             <div class="top-posts post2" style="background-image: url({{s_p_2.main_image.url}});">
                 <!-- <img class="post2-image-top img-fluid" src="/media/template.png" alt="" srcset=""> -->
                 <div class="post1-title-top">
-                    <a class="read_more read_more-top" href="{{s_p_2.get_absolute_url}}">
+                    <a class="read_more-top" href="{{s_p_2.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_2.title}}</h4>
                     </a>
-                    <p class="text-left autor-date-area"><i class="far fa-user"></i>{{s_p_2.author.first_name}} {{s_p_2.author.last_name}} / <i class="far fa-clock"></i> {{s_p_2.creating_date}}</p>
+                    <p class="text-left autor-date-area"><i class="far fa-user"></i> {{s_p_2.author.first_name}} {{s_p_2.author.last_name}} / <i class="far fa-clock"></i> {{s_p_2.creating_date}}</p>
                 </div>
             </div>     
 
             <div class="top-posts post3" style="background-image: url({{s_p_3.main_image.url}});">
                 
                 <div class="post1-title-top">
-                    <a class="read_more read_more-top" href="{{s_p_3.get_absolute_url}}">
+                    <a class="read_more-top" href="{{s_p_3.get_absolute_url}}">
                         <h4 class="post-titleh4">{{s_p_3.title}}</h4>
                     </a>
                     <p class="text-left autor-date-area"><i class="far fa-user"></i> {{s_p_3.author.first_name}} {{s_p_3.author.last_name}} / <i class="far fa-clock"></i> {{s_p_3.creating_date}}</p>
@@ -52,7 +52,7 @@
         <div class="container mt-3 midlle-box">
             <div class="midlle-posts column1">
 
-                <h3>Microsoft</h3><hr>
+                <h3><i class="fab fa-microsoft"></i> Microsoft</h3><hr>
                 {% for post in last_windows_posts %}
                     <div class="midlle-post">
                         <img class="post-image-midlle" src="{{post.main_image.url}}" alt="" srcset="">
@@ -69,7 +69,7 @@
             </div>
             <div class="midlle-posts column2">
 
-                <h3>Linux</h3><hr>
+                <h3><i class="fab fa-linux"></i> Linux</h3><hr>
 
                 {% for post in last_linux_posts %}
                     <div class="midlle-post">
@@ -85,9 +85,9 @@
                 {% endfor %}
 
             </div>
-            <div class="midlle-posts column3">
+            <!-- <div class="midlle-posts column3">
 
-                <h3>Мануали</h3><hr>
+                <h3><i class="fas fa-tools"></i> Мануали</h3><hr>
 
                 {% for post in last_manuals_posts %}
                     <div class="midlle-post">
@@ -102,7 +102,7 @@
                     </div>
                 {% endfor %}
                 
-            </div>
+            </div> -->
         </div>
 
         
@@ -140,7 +140,7 @@
                         {% endif %}
                         {% for i in posts.paginator.page_range %}
                             {% if posts.number == i %}
-                                <li class="btn load-more text-secondary bg-light"><span>{{ i }} </span></li>
+                                <li class="btn lead-more-disabled"><span>{{ i }} </span></li>
                             {% else %}
                                 <li><a class="btn load-more" href="?page={{ i }}">{{ i }}</a></li>
                             {% endif %}

@@ -18,7 +18,14 @@
 {% block content %}
         <div class="col-12 mt-5 pt-5 category-page-container">
             <div class="wrapper">
+                {% if category.title == 'Microsoft' %}
+                <h3 class="category-pageh3 text-center"><i class="fab fa-microsoft"></i> {{category.title}}</h3><hr>
+                {% elif category.title == 'Linux' %}
+                <h3 class="category-pageh3 text-center"><i class="fab fa-linux"></i> {{category.title}}</h3><hr>
+                {% else %}
                 <h3 class="category-pageh3 text-center">{{category.title}}</h3><hr>
+                {% endif %}
+                
                 <div class="category-page-posts">
 
                     {% for post in posts %}

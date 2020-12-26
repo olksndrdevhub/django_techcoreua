@@ -1,13 +1,24 @@
 hr{
     background-color: var(--mainHeaderscolorDark);
 }
+
+.read_more-top h4,
+.category-page-post-text .read_more h4{
+    color: var(--mainText);
+}
+
+
+
 .midlle-posts h6,
 .midlle-posts h3,
 .midlle-posts p,
 .bottom-box p,
 .bottom-box h3,
 .bottom-box h4,
-.category-pageh3{
+.category-pageh3,
+.read_more h4,
+.sidebar-page-post .autor-date-area,
+.no-results h4{
     color: var(--mainHeaderscolorDark);
 }
 .p-p-dark{
@@ -34,6 +45,14 @@ hr{
     color: var(--mainHeaderscolorDark);
 }
 
+
+.load-more{
+    background-color: var(--mainText);
+}
+
+.load-more-disabled{
+    color: var(--mainText);
+}
 
 
 body{
