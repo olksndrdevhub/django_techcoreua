@@ -45,7 +45,7 @@
                             {% endif %}
                             {% for i in posts.paginator.page_range %}
                                 {% if posts.number == i %}
-                                    <li class="btn load-more text-secondary bg-light"><span>{{ i }} </span></li>
+                                    <li class="btn load-more-disabled"><span>{{ i }} </span></li>
                                 {% else %}
                                     <li><a class="btn load-more" href="?page={{ i }}">{{ i }}</a></li>
                                 {% endif %}
@@ -63,6 +63,13 @@
             </div>
             <div class="sidebar-sticky">
                 <div class="sidebar mb-5">
+
+                    <h4 class="category-pageh3 text-center">Підписуйтеся на нас в соцмережах</h4>
+                    <div class="social-panel pt-3 pb-3">
+                        <a href="https://www.instagram.com/techcoreua/" class="nav-link social-link instag" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://t.me/techcoreua" class="nav-link social-link teleg" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="https://www.facebook.com/techcoreua" class="nav-link social-link faceb" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>    
+                    </div> 
         
                     <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
                     <div class="sidebar-posts">

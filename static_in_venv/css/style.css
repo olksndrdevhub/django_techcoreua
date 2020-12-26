@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 
 :root{
     --mainColor:#32373B;
@@ -150,6 +151,10 @@ p{
 
 .footer .nav-link-footer{
     font-size: 13px;
+    color: var(--secondaryColor);
+}
+
+.footer .social-panel a{
     color: var(--secondaryColor);
 }
 
@@ -364,8 +369,8 @@ hr{
     border: none;
 }
 
-.lead-more-disabled:hover,
-.lead-more-disabled{
+.load-more-disabled:hover,
+.load-more-disabled{
     background-color: white;
     border: 1px solid var(--borderColor);
     border-radius: .25rem;
@@ -373,7 +378,7 @@ hr{
     font-family: var(--mainFont);
     margin: .25rem;
 }
-.lead-more-disabled{
+.load-more-disabled{
     opacity: 0.75;
 }
 
@@ -395,7 +400,7 @@ hr{
 
 
 .category-page-post-text{
-    background-color: var(--secondaryColor);
+    /* background-color: var(--secondaryColor); */
 }
 
 .category-page-post img{
@@ -410,6 +415,46 @@ hr{
     /* position: sticky; */
     top: 10%;
 }
+
+.social-panel{
+    display: flex;
+    justify-content: center;
+}
+.social-panel a{
+    color: var(--mainHeaderscolorLight);
+    padding: 0 1rem 0 0;
+    margin: 0 0 0 1rem;
+}
+.social-panel a:hover{
+    color: white;
+}
+.social-panel a.instag:hover{
+    background-color: #e56969;
+}
+.social-panel a.teleg:hover{
+    background-color: #0088cc;
+}
+.social-panel a.faceb:hover{
+    background-color: #4267B2;
+}
+
+.fa-instagram{
+    color: white;
+    padding: 0.5rem;
+    background-color: #e56969;
+}
+.fa-telegram{
+    color: white;
+    padding: 0.5rem;
+    background-color: #0088cc;
+}
+.fa-facebook{
+    color: white;
+    padding: 0.5rem;
+    background-color: #4267B2;
+}
+
+
 
 .tags_cloud{
     background-color: var(--secondaryColor);
@@ -633,7 +678,8 @@ section.social_links>div>a{
     }
     .category-page-post{
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1.5fr 2fr;
+        gap: 5px;
     }
     /* postpage */
     .post-page-container{
@@ -693,8 +739,13 @@ section.social_links>div>a{
         font-size: 16px;
     }
 
+    .bottom-post{
+        height: 200px;
+    }
+    
+
     .post-titleh4{
-        font-size: 14px;
+        font-size: 18px;
     }
 
 
@@ -724,7 +775,7 @@ section.social_links>div>a{
         display: none;
     }
     .post-header-wrap{
-        padding: 0 3rem;
+        padding: 0 2rem;
 
     }
     .post-header-wrap>header{
@@ -750,8 +801,7 @@ section.social_links>div>a{
 
     .footer{
         grid-template-columns: 1fr;
-    }
-    
+    }    
   }
 
 @media screen and (max-width:500px) {

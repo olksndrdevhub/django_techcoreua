@@ -22,6 +22,10 @@
                 <h3 class="category-pageh3 text-center"><i class="fab fa-microsoft"></i> {{category.title}}</h3><hr>
                 {% elif category.title == 'Linux' %}
                 <h3 class="category-pageh3 text-center"><i class="fab fa-linux"></i> {{category.title}}</h3><hr>
+                {% elif category.title == 'Мануали' %}
+                <h3 class="category-pageh3 text-center"><i class="fas fa-tools"></i> {{category.title}}</h3><hr>
+                {% elif category.title == 'Огляди' %}
+                <h3 class="category-pageh3 text-center"><i class="far fa-eye"></i> {{category.title}}</h3><hr>
                 {% else %}
                 <h3 class="category-pageh3 text-center">{{category.title}}</h3><hr>
                 {% endif %}
@@ -52,7 +56,7 @@
                             {% endif %}
                             {% for i in posts.paginator.page_range %}
                                 {% if posts.number == i %}
-                                    <li class="btn load-more text-secondary bg-light"><span>{{ i }} </span></li>
+                                    <li class="btn lead-more-disabled"><span>{{ i }} </span></li>
                                 {% else %}
                                     <li><a class="btn load-more" href="?page={{ i }}">{{ i }}</a></li>
                                 {% endif %}
@@ -70,22 +74,32 @@
             </div>
             <div class="sidebar-sticky">
                 <div class="sidebar mb-5">
-                            
-                    <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
-                    <div class="sidebar-posts">
-        
-                        {% for manual in manuals_posts %}
-                        <div class="sidebar-page-post">
-                            <img class="img-fluid sidebar-page-post-img" src="{{manual.main_image.url}}" alt="" srcset="">
-                            <div class="sidebar-page-post-text">
-                                <a class="read_more" href="{{manual.get_absolute_url}}"><h4 class="post-titleh4">{{manual.title}}</h4></a>
-                                <p class="autor-date-area">{{manual.author.first_name}} {{manual.author.last_name}} / {{manual.creating_date}}</p>
+
+                    <h4 class="category-pageh3 text-center">Підписуйтеся на нас в соцмережах</h4>
+                    <div class="social-panel pt-3 pb-3">
+                        <a href="https://www.instagram.com/techcoreua/" class="nav-link social-link instag" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://t.me/techcoreua" class="nav-link social-link teleg" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="https://www.facebook.com/techcoreua" class="nav-link social-link faceb" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>    
+                    </div>              
+                    
+                    {% if category.title != 'Мануали' %}
+                        <h3 class="category-pageh3 text-center">Останні мануали</h3><hr>
+                        <div class="sidebar-posts">
+            
+                            {% for manual in manuals_posts %}
+                            <div class="sidebar-page-post">
+                                <img class="img-fluid sidebar-page-post-img" src="{{manual.main_image.url}}" alt="" srcset="">
+                                <div class="sidebar-page-post-text">
+                                    <a class="read_more" href="{{manual.get_absolute_url}}"><h4 class="post-titleh4">{{manual.title}}</h4></a>
+                                    <p class="autor-date-area">{{manual.author.first_name}} {{manual.author.last_name}} / {{manual.creating_date}}</p>
+                                </div>
                             </div>
+                            {% endfor %}
+                            
                         </div>
-                        {% endfor %}
-                        
-                    </div>
-        
+                    {% endif %}
+                    
+                    {% if category.title != 'Огляди' %}
                     <h3 class="category-pageh3 text-center mt-3">Останні огляди</h3><hr>
                     <div class="sidebar-posts">
                         
@@ -100,6 +114,8 @@
                         {% endfor %}
         
                     </div>
+                    {% endif %}
+
 
                     <h3 class="category-pageh3 text-center">Хмара тегів</h3><hr>
                     <div class="tags_cloud mb-3">

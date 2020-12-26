@@ -18,6 +18,9 @@ hr{
 .category-pageh3,
 .read_more h4,
 .sidebar-page-post .autor-date-area,
+.social-panel a,
+.category-page-post-text a .post-titleh4,
+.category-page-post-text p,
 .no-results h4{
     color: var(--mainHeaderscolorDark);
 }
