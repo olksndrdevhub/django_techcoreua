@@ -7,6 +7,9 @@ hr{
     color: var(--mainText);
 }
 
+.category-page-post-text .read_more h4:hover{
+    color: var(--links-color);
+}
 
 
 .midlle-posts h6,
