@@ -1,9 +1,30 @@
 hr{
     background-color: var(--mainHeaderscolorDark);
 }
-.midlle-posts > h3,
-.bottom-box > h3,
-.category-pageh3{
+
+.read_more-top h4,
+.category-page-post-text .read_more h4{
+    color: var(--mainText);
+}
+
+.category-page-post-text .read_more h4:hover{
+    color: var(--links-color);
+}
+
+
+.midlle-posts h6,
+.midlle-posts h3,
+.midlle-posts p,
+.bottom-box p,
+.bottom-box h3,
+.bottom-box h4,
+.category-pageh3,
+.read_more h4,
+.sidebar-page-post .autor-date-area,
+.social-panel a,
+.category-page-post-text a .post-titleh4,
+.category-page-post-text p,
+.no-results h4{
     color: var(--mainHeaderscolorDark);
 }
 .p-p-dark{
@@ -31,7 +52,15 @@ hr{
 }
 
 
+.load-more{
+    background-color: var(--mainText);
+}
+
+.load-more-disabled{
+    color: var(--mainText);
+}
+
 
 body{
-    background-color: #121212;
+    background-color: #212121;
 }
