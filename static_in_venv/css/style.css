@@ -302,7 +302,7 @@ hr{
 .bottom-post{
     display: grid;
     /* margin-bottom: 20px; */
-    height: 250px;
+    /* height: 250px; */
     grid-template-columns: 1.5fr 2fr;
 }
 
@@ -317,7 +317,7 @@ hr{
 
 .post-image-bottom{
     width: 100%;
-    height: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -740,7 +740,7 @@ section.social_links>div>a{
     }
 
     .bottom-post{
-        height: 200px;
+        /* height: 200px; */
     }
     
 
