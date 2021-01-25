@@ -437,7 +437,16 @@ hr{
 .social-panel a.faceb:hover{
     background-color: #4267B2;
 }
+.social-panel a.twitt:hover{
+    background-color: #00acee;
+}
 
+
+.fa-twitter{
+    color: white;
+    padding: 0.5rem;
+    background-color: #00acee;
+}
 .fa-instagram{
     color: white;
     padding: 0.5rem;
@@ -801,7 +810,11 @@ section.social_links>div>a{
 
     .footer{
         grid-template-columns: 1fr;
-    }    
+    }  
+    
+    .social-panel{
+        font-size: 12px;
+    }
   }
 
 @media screen and (max-width:500px) {
