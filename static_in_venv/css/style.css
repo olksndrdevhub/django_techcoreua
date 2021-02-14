@@ -750,7 +750,9 @@ section.social_links>div>a{
 
     .bottom-post{
         /* height: 200px; */
+        grid-template-columns: 1fr;
     }
+    
     
 
     .post-titleh4{
